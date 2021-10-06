@@ -1,0 +1,114 @@
+{
+  "3294538f": {
+    "collection": "studycase",
+    "query": {
+      "offset": 0,
+      "limit": 1
+    }
+  },
+  "-3543b215": {
+    "collection": "blog"
+  },
+  "-57ff4d69": {
+    "collection": "blog",
+    "query": {
+      "offset": 0,
+      "limit": 4,
+      "fields": [
+        {
+          "fieldPath": "_id",
+          "operatorName": "ne",
+          "value": "DYN_CONTEXT"
+        }
+      ]
+    }
+  },
+  "3773fc66": {
+    "collection": "studycase"
+  },
+  "14721d2e": {
+    "collection": "studycase",
+    "query": {
+      "offset": 1,
+      "limit": 1
+    }
+  },
+  "-9b01933": {
+    "collection": "studycase",
+    "query": {
+      "offset": 2,
+      "limit": 1
+    }
+  },
+  "efcc3fc": {
+    "collection": "studycase",
+    "query": {
+      "offset": 0,
+      "limit": 4,
+      "fields": [
+        {
+          "fieldPath": "category",
+          "operatorName": "eq",
+          "value": "category/marketing.md"
+        }
+      ]
+    }
+  },
+  "1a9b7a67": {
+    "collection": "studycase",
+    "query": {
+      "offset": 0,
+      "limit": 4,
+      "fields": [
+        {
+          "fieldPath": "category",
+          "operatorName": "eq",
+          "value": "category/web-design.md"
+        }
+      ]
+    }
+  },
+  "-4b7083d": {
+    "collection": "studycase",
+    "query": {
+      "offset": 0,
+      "limit": 4,
+      "fields": [
+        {
+          "fieldPath": "category",
+          "operatorName": "eq",
+          "value": "category/solution-it.md"
+        }
+      ]
+    }
+  },
+  "-649554dd": {
+    "collection": "studycase",
+    "query": {
+      "offset": 0,
+      "limit": 4,
+      "fields": [
+        {
+          "fieldPath": "category",
+          "operatorName": "eq",
+          "value": "category/growth-hacking.md"
+        }
+      ]
+    }
+  },
+  "3295b0ac": {
+    "collection": "studycase",
+    "query": {
+      "offset": 0,
+      "limit": 4
+    }
+  },
+  "-1e0de0aa": {
+    "collection": "team",
+    "query": {
+      "sort": [
+        "created-on"
+      ]
+    }
+  }
+}

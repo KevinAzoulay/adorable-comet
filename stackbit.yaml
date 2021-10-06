@@ -1,0 +1,31 @@
+stackbitVersion: "~0.3.0"
+ssgName: "custom"
+buildCommand: "npx @11ty/eleventy"
+publishDir: "public"
+staticDir: "static"
+uploadDir: "images"
+pagesDir: "site"
+metadata:
+  title: "kevins sublime project c02798 "
+  description: "Theme created in Webflow and converted with Udesly"
+models:
+  feed:
+    type: "page"
+    label: "Feeds"
+    urlPath: "/feed/{slug}"
+  category:
+    type: "page"
+    label: "Case Study Categories"
+    urlPath: "/category/{slug}"
+  team:
+    type: "page"
+    label: "Notre Teams"
+    urlPath: "/team/{slug}"
+  blog:
+    type: "page"
+    label: "Blog Posts"
+    urlPath: "/blog/{slug}"
+  studycase:
+    type: "page"
+    label: "Nos Projets"
+    urlPath: "/studycase/{slug}"

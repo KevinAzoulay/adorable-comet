@@ -1,0 +1,671 @@
+backend:
+  name: "git-gateway"
+  accept_roles:
+    - "admin"
+    - "editor"
+media_folder: "static/images"
+collections:
+  - name: "pages"
+    label: "Pages"
+    folder: "site/pages"
+    identifier_field: "title"
+    extension: "md"
+    create: false
+    delete: false
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Layout"
+        widget: "hidden"
+        name: "layout"
+        default: "{{slug}}.html"
+      - label: "Seo"
+        name: "seo"
+        widget: "object"
+        collapsed: true
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
+            required: false
+          - label: "Description"
+            name: "description"
+            widget: "string"
+            required: false
+          - label: "Open Graph Image"
+            name: "og:image"
+            widget: "image"
+            required: false
+            media_library:
+              config:
+                multiple: false
+          - label: "Twitter Card"
+            name: "twitter:card"
+            widget: "string"
+            default: "summary"
+            required: false
+          - label: "Twitter Site"
+            name: "twitter:site"
+            widget: "string"
+            required: false
+          - label: "Twitter Creator"
+            name: "twitter:creator"
+            widget: "string"
+            required: false
+          - label: "Additional HTML tags"
+            name: "additional_tags"
+            widget: "text"
+            required: false
+  - name: "feed"
+    label: "Feeds"
+    folder: "site/feed"
+    create: true
+    identifier_field: "name"
+    extension: "md"
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - label: "Tags"
+        widget: "hidden"
+        name: "tags"
+        default: "feed"
+      - label: "Layout"
+        widget: "hidden"
+        name: "layout"
+        default: "single-feed.html"
+      - label: "Seo"
+        name: "seo"
+        widget: "object"
+        collapsed: true
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
+            required: false
+          - label: "Description"
+            name: "description"
+            widget: "string"
+            required: false
+          - label: "Open Graph Image"
+            name: "og:image"
+            widget: "image"
+            required: false
+            media_library:
+              config:
+                multiple: false
+          - label: "Twitter Card"
+            name: "twitter:card"
+            widget: "string"
+            default: "summary"
+            required: false
+          - label: "Twitter Site"
+            name: "twitter:site"
+            widget: "string"
+            required: false
+          - label: "Twitter Creator"
+            name: "twitter:creator"
+            widget: "string"
+            required: false
+          - label: "Additional HTML tags"
+            name: "additional_tags"
+            widget: "text"
+            required: false
+      - widget: "object"
+        name: "image"
+        label: "Image"
+        fields:
+          - widget: "image"
+            name: "url"
+            label: "Image"
+            allow_multiple: false
+            required: false
+          - widget: "string"
+            name: "alt"
+            label: "Alt Text"
+            required: false
+      - name: "name"
+        label: "Name"
+        widget: "string"
+        required: true
+      - name: "created-on"
+        label: "Created On"
+        widget: "datetime"
+        required: false
+      - name: "updated-on"
+        label: "Updated On"
+        widget: "datetime"
+        required: false
+      - name: "published-on"
+        label: "Published On"
+        widget: "datetime"
+        required: false
+  - name: "category"
+    label: "Case Study Categories"
+    folder: "site/category"
+    create: true
+    identifier_field: "name"
+    extension: "md"
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - label: "Tags"
+        widget: "hidden"
+        name: "tags"
+        default: "category"
+      - label: "Layout"
+        widget: "hidden"
+        name: "layout"
+        default: "single-category.html"
+      - label: "Seo"
+        name: "seo"
+        widget: "object"
+        collapsed: true
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
+            required: false
+          - label: "Description"
+            name: "description"
+            widget: "string"
+            required: false
+          - label: "Open Graph Image"
+            name: "og:image"
+            widget: "image"
+            required: false
+            media_library:
+              config:
+                multiple: false
+          - label: "Twitter Card"
+            name: "twitter:card"
+            widget: "string"
+            default: "summary"
+            required: false
+          - label: "Twitter Site"
+            name: "twitter:site"
+            widget: "string"
+            required: false
+          - label: "Twitter Creator"
+            name: "twitter:creator"
+            widget: "string"
+            required: false
+          - label: "Additional HTML tags"
+            name: "additional_tags"
+            widget: "text"
+            required: false
+      - name: "name"
+        label: "Name"
+        widget: "string"
+        required: true
+      - name: "created-on"
+        label: "Created On"
+        widget: "datetime"
+        required: false
+      - name: "updated-on"
+        label: "Updated On"
+        widget: "datetime"
+        required: false
+      - name: "published-on"
+        label: "Published On"
+        widget: "datetime"
+        required: false
+  - name: "team"
+    label: "Notre Teams"
+    folder: "site/team"
+    create: true
+    identifier_field: "name"
+    extension: "md"
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - label: "Tags"
+        widget: "hidden"
+        name: "tags"
+        default: "team"
+      - label: "Layout"
+        widget: "hidden"
+        name: "layout"
+        default: "single-team.html"
+      - label: "Seo"
+        name: "seo"
+        widget: "object"
+        collapsed: true
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
+            required: false
+          - label: "Description"
+            name: "description"
+            widget: "string"
+            required: false
+          - label: "Open Graph Image"
+            name: "og:image"
+            widget: "image"
+            required: false
+            media_library:
+              config:
+                multiple: false
+          - label: "Twitter Card"
+            name: "twitter:card"
+            widget: "string"
+            default: "summary"
+            required: false
+          - label: "Twitter Site"
+            name: "twitter:site"
+            widget: "string"
+            required: false
+          - label: "Twitter Creator"
+            name: "twitter:creator"
+            widget: "string"
+            required: false
+          - label: "Additional HTML tags"
+            name: "additional_tags"
+            widget: "text"
+            required: false
+      - widget: "object"
+        name: "image"
+        label: "Image"
+        fields:
+          - widget: "image"
+            name: "url"
+            label: "Image"
+            allow_multiple: false
+            required: false
+          - widget: "string"
+            name: "alt"
+            label: "Alt Text"
+            required: false
+      - name: "position"
+        label: "Position"
+        widget: "string"
+        required: false
+      - widget: "select"
+        name: "team"
+        label: "Team"
+        options:
+          - label: "Designer"
+            value: "Designer"
+          - label: "Developer"
+            value: "Developer"
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        required: false
+      - name: "about"
+        label: "About"
+        widget: "markdown"
+        required: false
+      - name: "name"
+        label: "Name"
+        widget: "string"
+        required: true
+      - name: "created-on"
+        label: "Created On"
+        widget: "datetime"
+        required: false
+      - name: "updated-on"
+        label: "Updated On"
+        widget: "datetime"
+        required: false
+      - name: "published-on"
+        label: "Published On"
+        widget: "datetime"
+        required: false
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "site/blog"
+    create: true
+    identifier_field: "name"
+    extension: "md"
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - label: "Tags"
+        widget: "hidden"
+        name: "tags"
+        default: "blog"
+      - label: "Layout"
+        widget: "hidden"
+        name: "layout"
+        default: "single-blog.html"
+      - label: "Seo"
+        name: "seo"
+        widget: "object"
+        collapsed: true
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
+            required: false
+          - label: "Description"
+            name: "description"
+            widget: "string"
+            required: false
+          - label: "Open Graph Image"
+            name: "og:image"
+            widget: "image"
+            required: false
+            media_library:
+              config:
+                multiple: false
+          - label: "Twitter Card"
+            name: "twitter:card"
+            widget: "string"
+            default: "summary"
+            required: false
+          - label: "Twitter Site"
+            name: "twitter:site"
+            widget: "string"
+            required: false
+          - label: "Twitter Creator"
+            name: "twitter:creator"
+            widget: "string"
+            required: false
+          - label: "Additional HTML tags"
+            name: "additional_tags"
+            widget: "text"
+            required: false
+      - widget: "object"
+        name: "image"
+        label: "Image"
+        fields:
+          - widget: "image"
+            name: "url"
+            label: "Image"
+            allow_multiple: false
+            required: false
+          - widget: "string"
+            name: "alt"
+            label: "Alt Text"
+            required: false
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        required: false
+      - name: "description"
+        label: "Description"
+        widget: "string"
+        required: false
+      - name: "name"
+        label: "Name"
+        widget: "string"
+        required: true
+      - name: "created-on"
+        label: "Created On"
+        widget: "datetime"
+        required: false
+      - name: "updated-on"
+        label: "Updated On"
+        widget: "datetime"
+        required: false
+      - name: "published-on"
+        label: "Published On"
+        widget: "datetime"
+        required: false
+  - name: "studycase"
+    label: "Nos Projets"
+    folder: "site/studycase"
+    create: true
+    identifier_field: "name"
+    extension: "md"
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - label: "Tags"
+        widget: "hidden"
+        name: "tags"
+        default: "studycase"
+      - label: "Layout"
+        widget: "hidden"
+        name: "layout"
+        default: "single-studycase.html"
+      - label: "Seo"
+        name: "seo"
+        widget: "object"
+        collapsed: true
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
+            required: false
+          - label: "Description"
+            name: "description"
+            widget: "string"
+            required: false
+          - label: "Open Graph Image"
+            name: "og:image"
+            widget: "image"
+            required: false
+            media_library:
+              config:
+                multiple: false
+          - label: "Twitter Card"
+            name: "twitter:card"
+            widget: "string"
+            default: "summary"
+            required: false
+          - label: "Twitter Site"
+            name: "twitter:site"
+            widget: "string"
+            required: false
+          - label: "Twitter Creator"
+            name: "twitter:creator"
+            widget: "string"
+            required: false
+          - label: "Additional HTML tags"
+            name: "additional_tags"
+            widget: "text"
+            required: false
+      - name: "short-info-2"
+        label: "Short info"
+        widget: "text"
+        required: false
+      - name: "summary"
+        label: "Summary"
+        widget: "string"
+        required: false
+      - name: "services"
+        label: "Services"
+        widget: "string"
+        required: false
+      - name: "services-descroption"
+        label: "Services Descroption"
+        widget: "string"
+        required: false
+      - name: "tools"
+        label: "Tools"
+        widget: "string"
+        required: false
+      - name: "tools-desc"
+        label: "Tools Desc"
+        widget: "string"
+        required: false
+      - name: "result-type"
+        label: "Result type"
+        widget: "string"
+        required: false
+      - name: "result-value"
+        label: "Result Value"
+        widget: "string"
+        required: false
+      - name: "result-desc"
+        label: "Result Desc"
+        widget: "string"
+        required: false
+      - name: "result-2-type"
+        label: "Result 2 Type"
+        widget: "string"
+        required: false
+      - name: "result-value-2"
+        label: "Result Value 2"
+        widget: "string"
+        required: false
+      - name: "result-2-desc"
+        label: "Result 2 Desc"
+        widget: "string"
+        required: false
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        required: false
+      - name: "objectif-type"
+        label: "Objectif type"
+        widget: "string"
+        required: false
+      - name: "objectifs"
+        label: "Objectifs"
+        widget: "markdown"
+        required: false
+      - name: "intro-execution"
+        label: "Intro Execution"
+        widget: "string"
+        required: false
+      - name: "notre-approche-description"
+        label: "Approche description"
+        widget: "markdown"
+        required: true
+      - name: "execution-descrption"
+        label: "Execution descrption"
+        widget: "markdown"
+        required: false
+      - name: "text-3"
+        label: "Text 3"
+        widget: "markdown"
+        required: false
+      - widget: "relation"
+        collection: "category"
+        value_field: "site/category/{{slug}}.md"
+        search_fields:
+          - "slug"
+          - "name"
+        display_fields:
+          - "name"
+        required: false
+        name: "category"
+      - widget: "object"
+        name: "photo"
+        label: "Photo"
+        fields:
+          - widget: "image"
+            name: "url"
+            label: "Image"
+            allow_multiple: false
+            required: false
+          - widget: "string"
+            name: "alt"
+            label: "Alt Text"
+            required: false
+      - widget: "relation"
+        collection: "studycase"
+        value_field: "site/studycase/{{slug}}.md"
+        search_fields:
+          - "slug"
+          - "name"
+        display_fields:
+          - "name"
+        required: false
+        name: "next-project"
+      - widget: "object"
+        name: "animation-1"
+        label: "Animation 1"
+        fields:
+          - widget: "image"
+            name: "url"
+            label: "Image"
+            allow_multiple: false
+            required: false
+          - widget: "string"
+            name: "alt"
+            label: "Alt Text"
+            required: false
+      - widget: "object"
+        name: "animation-2"
+        label: "Animation 2"
+        fields:
+          - widget: "image"
+            name: "url"
+            label: "Image"
+            allow_multiple: false
+            required: false
+          - widget: "string"
+            name: "alt"
+            label: "Alt Text"
+            required: false
+      - widget: "object"
+        name: "animation-3"
+        label: "Animation 3"
+        fields:
+          - widget: "image"
+            name: "url"
+            label: "Image"
+            allow_multiple: false
+            required: false
+          - widget: "string"
+            name: "alt"
+            label: "Alt Text"
+            required: false
+      - widget: "object"
+        name: "animation-4"
+        label: "Animation 4"
+        fields:
+          - widget: "image"
+            name: "url"
+            label: "Image"
+            allow_multiple: false
+            required: false
+          - widget: "string"
+            name: "alt"
+            label: "Alt Text"
+            required: false
+      - widget: "object"
+        name: "animation-5"
+        label: "Animation 5"
+        fields:
+          - widget: "image"
+            name: "url"
+            label: "Image"
+            allow_multiple: false
+            required: false
+          - widget: "string"
+            name: "alt"
+            label: "Alt Text"
+            required: false
+      - widget: "object"
+        name: "animation-6"
+        label: "Animation 6"
+        fields:
+          - widget: "image"
+            name: "url"
+            label: "Image"
+            allow_multiple: false
+            required: false
+          - widget: "string"
+            name: "alt"
+            label: "Alt Text"
+            required: false
+      - name: "name"
+        label: "Name"
+        widget: "string"
+        required: true
+      - name: "created-on"
+        label: "Created On"
+        widget: "datetime"
+        required: false
+      - name: "updated-on"
+        label: "Updated On"
+        widget: "datetime"
+        required: false
+      - name: "published-on"
+        label: "Published On"
+        widget: "datetime"
+        required: false

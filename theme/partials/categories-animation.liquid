@@ -1,0 +1,13 @@
+<div class="mover-wrapper w-dyn-list">
+          {%- unless collection.length == 0 -%}<div role="list" class="collection-list w-dyn-items">
+            {%- for item in collection -%}<div role="listitem" class="mover-item w-dyn-item">
+              <a href="{{ item.url }}" class="mover-link w-inline-block">
+                <h2 class="bordered-text">{{ item.data.title }}</h2>
+                <div class="mover-dot"></div>
+              </a>
+            </div>{%- endfor -%}
+          </div>{%- endunless -%}
+          {%- if collection.length == 0 -%}<div class="w-dyn-empty">
+            <div>No items found.</div>
+          </div>{%- endif -%}
+        </div>
